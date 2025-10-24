@@ -10,20 +10,6 @@ function App() {
   });
 
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-
-  const serviceAreas = [
-    'Spokane Valley', 'Liberty Lake', 'Cheney', 'Airway Heights',
-    'Medical Lake', 'Deer Park', 'Mead', 'Otis Orchards',
-    'Millwood', 'Dishman', 'Veradale', 'Post Falls'
-  ];
-
-  const services = [
-    'Deck installation', 'Custom deck design', 'Composite decking',
-    'Wood deck construction', 'Deck repair', 'Deck staining',
-    'Deck remodeling', 'Deck restoration', 'Deck replacement',
-    'Deck railing installation', 'Pergola installation', 'Deck demolition'
-  ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,48 +38,8 @@ function App() {
             </div>
 
             <nav className="hidden md:flex space-x-8 text-gray-600 font-medium items-center">
-              <div className="relative">
-                <button
-                  onClick={() => setOpenDropdown(openDropdown === 'services' ? null : 'services')}
-                  className="hover:text-gray-900 transition flex items-center gap-1"
-                >
-                  Services <ChevronDown className="w-4 h-4" />
-                </button>
-                {openDropdown === 'services' && (
-                  <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-lg py-2 min-w-[220px] z-50">
-                    {services.map((service, idx) => (
-                      <a
-                        key={idx}
-                        href="#"
-                        className="block px-4 py-2 hover:bg-gray-100 text-gray-700 hover:text-gray-900"
-                      >
-                        {service}
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </div>
-              <div className="relative">
-                <button
-                  onClick={() => setOpenDropdown(openDropdown === 'areas' ? null : 'areas')}
-                  className="hover:text-gray-900 transition flex items-center gap-1"
-                >
-                  Service Areas <ChevronDown className="w-4 h-4" />
-                </button>
-                {openDropdown === 'areas' && (
-                  <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-lg py-2 min-w-[220px] z-50">
-                    {serviceAreas.map((area, idx) => (
-                      <a
-                        key={idx}
-                        href="#"
-                        className="block px-4 py-2 hover:bg-gray-100 text-gray-700 hover:text-gray-900"
-                      >
-                        {area}
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </div>
+              <a href="#services" className="hover:text-gray-900 transition">Services</a>
+              <a href="#service-areas" className="hover:text-gray-900 transition">Service Areas</a>
               <a href="#process" className="hover:text-gray-900 transition">Our Process</a>
               <a href="#gallery" className="hover:text-gray-900 transition">Gallery</a>
               <a href="#reviews" className="hover:text-gray-900 transition">Reviews</a>
@@ -379,7 +325,7 @@ function App() {
       </section>
 
       {/* Services Section */}
-      <section className="bg-gray-50 py-16 md:py-20">
+      <section id="services" className="bg-gray-50 py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Deck Services in Spokane</h2>
@@ -551,7 +497,7 @@ function App() {
       </section>
 
       {/* Coverage Map Section */}
-      <section className="bg-gray-50 py-16 md:py-20">
+      <section id="service-areas" className="bg-gray-50 py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Proudly Serving Spokane & Surrounding Areas</h2>
